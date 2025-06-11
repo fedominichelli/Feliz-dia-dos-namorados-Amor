@@ -1,0 +1,20 @@
+# Apaga o arquivo MP3 na próxima execução do GitHub Actions
+name: Delete MP3
+
+on:
+  push:
+
+jobs:
+  delete_file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Delete file
+        run: |
+          git rm sua-musica-romantica.mp3
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git commit -m "Deletar mp3 via GitHub Actions"
+          git push
