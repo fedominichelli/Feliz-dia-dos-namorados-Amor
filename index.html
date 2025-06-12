@@ -11,12 +11,12 @@
       background: linear-gradient(to right, #ffafbd, #ffc3a0);
       color: #fff;
       text-align: center;
-      padding: 50px 20px;
+      padding: 40px 20px;
       scroll-behavior: smooth;
     }
 
     h1 {
-      font-size: 3em;
+      font-size: 2.5em;
       margin-bottom: 20px;
     }
 
@@ -32,18 +32,57 @@
     }
 
     p {
-      font-size: 1.3em;
+      font-size: 1.2em;
       max-width: 700px;
       margin: 20px auto;
       line-height: 1.6;
     }
 
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    button {
+      background-color: #ff6f91;
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      font-size: 1em;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      width: 90%;
+      max-width: 300px;
+    }
+
+    button:hover {
+      background-color: #ff3e6c;
+      transform: scale(1.02);
+    }
+
+    #surprise {
+      display: none;
+      margin-top: 30px;
+      font-size: 1.4em;
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     .gallery {
       margin-top: 40px;
-      display: flex;
+      display: none;
       flex-wrap: wrap;
       justify-content: center;
       gap: 15px;
+      animation: fadeIn 1s ease-in;
       scroll-margin-top: 80px;
     }
 
@@ -59,41 +98,9 @@
       transform: scale(1.05);
     }
 
-    .buttons {
-      margin-top: 30px;
-    }
-
-    button {
-      background-color: #ff6f91;
-      color: white;
-      border: none;
-      padding: 15px 25px;
-      font-size: 1em;
-      margin: 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #ff3e6c;
-    }
-
-    #surprise {
-      display: none;
-      margin-top: 30px;
-      font-size: 1.4em;
-      animation: fadeIn 1s forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
     footer {
       margin-top: 50px;
-      font-size: 2em;
+      font-size: 1.8em;
       color: #f5f5f5;
     }
 
@@ -102,23 +109,28 @@
         font-size: 2em;
       }
 
+      p {
+        font-size: 1.1em;
+      }
+
       .gallery img {
         width: 90%;
       }
 
-      button {
-        width: 80%;
+      footer {
+        font-size: 1.4em;
+        padding-bottom: 30px;
       }
     }
   </style>
 </head>
 <body>
   <div class="heart">❤️</div>
-  <h1>Feliz Dia dos Namorados meu bem! 💕</h1>
+  <h1>Feliz Dia dos Namorados, meu bem! 💕</h1>
   <p>
-    Hoje é um dia mais que especial, e eu só quero te lembrar o quanto você é especial para mim meu benzinho! <br>
+    Hoje é um dia mais que especial, e eu só quero te lembrar o quanto você é especial para mim, meu benzinho! <br>
     Cada momento ao seu lado é único, e eu sou tão grato por ter você... Como sempre te falo, ter você na minha vida é um privilégio de Deus! <br>
-    Que venham muitos outros 12 de junho juntos amor EU TE AMO MOMO! 💖
+    Que venham muitos outros 12 de junho juntos, amor. EU TE AMO MOMO! 💖
   </p>
 
   <div class="buttons">
@@ -164,7 +176,9 @@
     }
 
     function scrollToGallery() {
-      document.getElementById('galeria').scrollIntoView({ behavior: 'smooth' });
+      const galeria = document.getElementById('galeria');
+      galeria.style.display = 'flex';
+      galeria.scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 </body>
