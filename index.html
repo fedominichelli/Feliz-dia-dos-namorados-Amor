@@ -44,6 +44,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 15px;
+      scroll-margin-top: 80px;
     }
 
     .gallery img {
@@ -121,17 +122,18 @@
   </p>
 
   <div class="buttons">
-    <button onclick="playMusic()">Tocar uma musica 💕</button>
-    <button onclick="showSurprise()">Clique para uma surpresa 😍</button>
+    <button onclick="toggleMusic()">🎵 Tocar / Pausar Música</button>
+    <button onclick="showSurprise()">💌 Clique para uma surpresa</button>
+    <button onclick="scrollToGallery()">📸 Ver nossas fotos</button>
   </div>
 
   <div id="surprise">
     Você é o motivo do meu sorriso todos os dias 💘<br>
-    Obrigado por ser você. Vamos escrever nossa história juntos!
+    Obrigado por ser você. Vamos escrever nossa história juntos!<br>
     Para sempre namorados e amigos!!
   </div>
 
-  <div class="gallery">
+  <div id="galeria" class="gallery">
     <img src="1.jpeg" alt="Nós dois">
     <img src="2.jpeg" alt="Outro momento especial">
     <img src="3.jpeg" alt="Mais um dia feliz">
@@ -141,16 +143,28 @@
     Feito com muito amor, pelo seu binhozinho! 💌
   </footer>
 
-  <audio id="loveSong" src="sua-musica-romantica.mp3"></audio>
+  <audio id="loveSong" src="sua-musica-romantica.mp3" loop></audio>
 
   <script>
-    function playMusic() {
+    let isPlaying = false;
+
+    function toggleMusic() {
       const music = document.getElementById('loveSong');
-      music.play();
+      if (!isPlaying) {
+        music.play();
+        isPlaying = true;
+      } else {
+        music.pause();
+        isPlaying = false;
+      }
     }
 
     function showSurprise() {
       document.getElementById('surprise').style.display = 'block';
+    }
+
+    function scrollToGallery() {
+      document.getElementById('galeria').scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 </body>
